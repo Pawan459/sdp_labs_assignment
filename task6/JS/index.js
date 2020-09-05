@@ -1,6 +1,7 @@
 (function (document) {
   const eleStartButton = document.getElementById("startStop");
-  const eleStopButton = document.getElementById("reset");
+  const eleResetButton = document.getElementById("reset");
+  const eleDisplay = document.getElementById("display");
   //Define vars to hold time values
   let seconds = 0;
   let minutes = 0;
@@ -52,7 +53,7 @@
     }
 
     //Display updated time values to user
-    document.getElementById("display").innerHTML =
+    eleDisplay.innerHTML =
       displayHours + ":" + displayMinutes + ":" + displaySeconds;
   }
 
@@ -60,11 +61,11 @@
     if (status === "stopped") {
       //Start the stopwatch (by calling the setInterval() function)
       interval = setInterval(stopWatch, 1000);
-      document.getElementById("startStop").innerHTML = "Stop";
+      eleStartButton.innerHTML = "Stop";
       status = "started";
     } else {
       clearInterval(interval);
-      document.getElementById("startStop").innerHTML = "Start";
+      eleStartButton.innerHTML = "Start";
       status = "stopped";
     }
   }
@@ -75,10 +76,10 @@
     seconds = 0;
     minutes = 0;
     hours = 0;
-    document.getElementById("display").innerHTML = "00:00:00";
-    document.getElementById("startStop").innerHTML = "Start";
+    eleDisplay.innerHTML = "00:00:00";
+    eleStartButton.innerHTML = "Start";
   }
 
   eleStartButton.addEventListener("click", startStop);
-  eleStopButton.addEventListener("click", reset);
+  eleResetButton.addEventListener("click", reset);
 })(document);
