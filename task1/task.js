@@ -33,3 +33,4 @@ const NUMBER_OF_TERMS = 30;
     curr_total_terms += 1;
   }
 })();
+// We can optimize it further using fast-doubling method
